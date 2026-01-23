@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BoxBreathingActivity">
+
+    <View
+        android:id="@+id/movDot"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/dot"
+        android:visibility="invisible"
+
+
+        app:layout_constraintStart_toStartOf="@id/statSquare"
+        app:layout_constraintTop_toTopOf="@id/statSquare" />
+
+    <View
+        android:id="@+id/statSquare"
+        android:background="@drawable/rectangle"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        android:visibility="invisible"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/startBut"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:text="start"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/brtCounter"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:visibility="invisible"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/statSquare"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
