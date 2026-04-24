@@ -1,55 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BoxBreathingActivity">
-
-    <View
-        android:id="@+id/movDot"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:background="@drawable/dot"
-        android:visibility="invisible"
-
-
-        app:layout_constraintStart_toStartOf="@id/statSquare"
-        app:layout_constraintTop_toTopOf="@id/statSquare" />
+    android:background="?android:attr/windowBackground">
 
     <View
         android:id="@+id/statSquare"
-        android:background="@drawable/rectangle"
-        android:layout_width="192dp"
-        android:layout_height="192dp"
+        android:layout_width="@dimen/move_dot_distance"
+        android:layout_height="@dimen/move_dot_distance"
+        android:background="@drawable/bg_square_frame"
         android:visibility="invisible"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/startBut"
-        android:layout_width="128dp"
-        android:layout_height="64dp"
-        android:text="start"
 
-        app:layout_constraintStart_toStartOf="parent"
+    <View
+        android:id="@+id/movDot"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/bg_breathing_dot"
+        android:visibility="invisible"
+        android:elevation="5dp"
+        app:layout_constraintTop_toTopOf="@+id/statSquare"
+        app:layout_constraintStart_toStartOf="@+id/statSquare"
+        android:translationX="-12dp"
+        android:translationY="-12dp" />
+    <LinearLayout
+        android:id="@+id/prepareLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="КВАДРАТНОЕ ДЫХАНИЕ"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textSize="22sp"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Вдох, задержка, выдох, задержка — всё по 4 секунды. Это успокаивает нервную систему."
+            android:fontFamily="@font/comfortaa_bold"
+            android:textSize="14sp"
+            android:alpha="0.7"
+            android:gravity="center"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/startBut"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="40dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="?android:attr/textColorPrimary"
+            app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
+            android:clickable="true"
+            android:focusable="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="НАЧАТЬ"
+                android:fontFamily="@font/comfortaa_bold"
+                android:letterSpacing="0.1"
+                android:textColor="?android:attr/textColorPrimary" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    
+    <TextView
+        android:id="@+id/phaseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text=""
+        android:textSize="28sp"
+        android:visibility="invisible"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/statSquare"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="32dp" />
 
     <TextView
         android:id="@+id/brtCounter"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="1"
+        android:textSize="48sp"
         android:visibility="invisible"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/statSquare"
+        android:textColor="?android:attr/textColorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/statSquare"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        android:layout_marginTop="32dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground">
+
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ПРИГОТОВЬТЕСЬ"
+        android:textSize="24sp"
+        android:textColor="?android:attr/textColorPrimary"
+        android:fontFamily="@font/comfortaa_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <TextView android:id="@+id/hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Подсказка появится здесь"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:paddingHorizontal="40dp"
+        android:textColor="?android:attr/textColorSecondary"
+        android:fontFamily="@font/comfortaa_bold"
+        app:layout_constraintTop_toBottomOf="@id/statusText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    
+
+
+    <FrameLayout
+        android:id="@+id/bodyWrapper"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="0dp"
+        app:layout_constraintDimensionRatio="1:2"
+        app:layout_constraintTop_toBottomOf="@id/hint"
+        app:layout_constraintBottom_toTopOf="@id/timerText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/hForehead"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/head_forehead"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/hEyes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/head_eyes"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/hMouth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/head_mouth"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/hNose"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/head_nose"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/bNeck"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/body_neck"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/bShoulders"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/body_shoulders"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/aUpper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/arm_upper"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/aHands"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/arm_hands"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/tAbdomen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/torso_abdomen"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/tChest"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/torso_chest"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/lButt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/legs_butt"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/lCalves"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/legs_calves"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/lFeet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/legs_feet"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/lThighs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/legs_thighs"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/imgBodyBase"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/pmr_fbody_empty"
+            android:alpha="0.6"
+            app:tint="?android:textColorPrimary"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textSize="32sp"
+        android:fontFamily="@font/comfortaa_bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DoveLoveYou"
+            android:textSize="28sp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Настройки"
+            android:src="@android:drawable/btn_radio"
+            app:tint="?android:attr/textColorPrimary" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ТЕРАПИЯ ДПДГ (EMDR)"
+        android:textSize="12sp"
+        android:letterSpacing="0.15"
+        android:alpha="0.5"
+        android:fontFamily="@font/comfortaa_bold"
+        android:layout_marginBottom="12dp"
+        android:textColor="?android:attr/textColorPrimary"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:layout_marginBottom="32dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/goEMDR"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="?android:attr/textColorPrimary"
+            app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ДПДГ"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Терапия движением глаз"
+                    android:textSize="11sp"
+                    android:alpha="0.6"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp" />
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ЗАЗЕМЛЕНИЕ И ТЕЛО"
+        android:textSize="12sp"
+        android:letterSpacing="0.15"
+        android:alpha="0.5"
+        android:fontFamily="@font/comfortaa_bold"
+        android:layout_marginBottom="12dp"
+        android:textColor="?android:attr/textColorPrimary"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/goGrounding"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="?android:attr/textColorPrimary"
+            app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5-4-3-2-1"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Техника быстрого заземления"
+                    android:textSize="11sp"
+                    android:alpha="0.6"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/goPMR"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="?android:attr/textColorPrimary"
+            app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ПМР"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Релаксация мышц (Якобсон)"
+                    android:textSize="11sp"
+                    android:alpha="0.6"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/goBreathe"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="?android:attr/textColorPrimary"
+            app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ДЫХАНИЕ"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Квадратное дыхание 4х4"
+                    android:textSize="11sp"
+                    android:alpha="0.6"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </GridLayout>
+</LinearLayout>

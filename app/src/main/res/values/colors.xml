@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <color name="mint_bg">#E8F5E9</color>
+    <color name="honey_bg">#FFFDE7</color>
+    <color name="rose_bg">#FFEBEE</color>
+    <color name="flash_color">#A8E6CF</color> 
+
+    
+    <color name="mint_bg_dark">#1B2E1D</color>
+    <color name="honey_bg_dark">#2E2D1B</color>
+    <color name="rose_bg_dark">#2E1B1B</color>
+
 </resources>
