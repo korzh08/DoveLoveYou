@@ -24,6 +24,18 @@
             android:layout_centerVertical="true"/>
 
         <ImageButton
+            android:id="@+id/btnHistory"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_toStartOf="@id/btnSettings"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/memory"
+            android:src="@drawable/ic_history_custom"
+            app:tint="?android:attr/textColorPrimary" />
+
+        <ImageButton
             android:id="@+id/btnSettings"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -31,7 +43,7 @@
             android:layout_centerVertical="true"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Настройки"
-            android:src="@android:drawable/btn_radio"
+            android:src="@drawable/ic_settings_custom"
             app:tint="?android:attr/textColorPrimary" />
     </RelativeLayout>
 
@@ -64,7 +76,8 @@
             app:strokeColor="?android:attr/textColorPrimary"
             app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:stateListAnimator="@animator/card_press">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -126,7 +139,8 @@
             app:strokeColor="?android:attr/textColorPrimary"
             app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:stateListAnimator="@animator/card_press">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -164,7 +178,8 @@
             app:strokeColor="?android:attr/textColorPrimary"
             app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:stateListAnimator="@animator/card_press">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -202,7 +217,8 @@
             app:strokeColor="?android:attr/textColorPrimary"
             app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:stateListAnimator="@animator/card_press">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -221,6 +237,45 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Квадратное дыхание 4х4"
+                    android:textSize="11sp"
+                    android:alpha="0.6"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/goDescribe"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="?android:attr/textColorPrimary"
+            app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@animator/card_press">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/describe_object_menu"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:textColor="?android:attr/textColorPrimary"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/describe_object_menu_desc"
                     android:textSize="11sp"
                     android:alpha="0.6"
                     android:fontFamily="@font/comfortaa_bold"

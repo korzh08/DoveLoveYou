@@ -1,4 +1,33 @@
 <resources>
     <string name="app_name">DoveLoveYou</string>
     <string name="title_activity_box_breathing">BoxBreathingActivity</string>
+    <string name="close">Закрыть</string>
+    <string name="describe_object_title_start">ОПИСАНИЕ ПРЕДМЕТА</string>
+    <string name="describe_object_desc">Эта техника поможет вам переключить внимание на окружающий мир. Выберите любой предмет рядом с вами и подробно опишите его свойства.</string>
+    <string name="start">НАЧАТЬ</string>
+    <string name="describe_object_title">Опишите предмет</string>
+    <string name="describe_object_color">Какого предмет цвета?</string>
+    <string name="describe_object_touch">Какой он на ощупь?</string>
+    <string name="describe_object_shape">Какая у него форма?</string>
+    <string name="describe_object_size">Какого он размера?</string>
+    <string name="describe_object_weight">Сколько он весит?</string>
+    <string name="describe_object_material">Из чего он сделан?</string>
+    <string name="describe_object_details">Какие есть мелкие детали (царапины, узоры)?</string>
+    <string name="describe_object_temp">Какой он температуры?</string>
+    <string name="describe_object_transparent">Он прозрачный или нет?</string>
+    <string name="describe_object_finish">ЗАВЕРШИТЬ</string>
+    <string name="describe_object_menu">ОПИСАНИЕ</string>
+    <string name="describe_object_menu_desc">Опишите предмет вокруг вас</string>
+    <string name="describe_object_radio">Описание предмета</string>
+    <string name="pmr_full">ПМР (Полная)</string>
+    <string name="pmr_express">ПМР (Экспресс)</string>
+    <string name="sos">SOS</string>
+    <string name="memory">История сессий</string>
+    <string name="export_pdf">Экспорт в PDF</string>
+    <string name="clear_history">Очистить историю</string>
+    <string name="method_column">Метод</string>
+    <string name="date_column">Дата</string>
+    <string name="duration_column">Длительность</string>
+    <string name="sos_column">SOS</string>
+    <string name="history_title">Архив сессий</string>
 </resources>

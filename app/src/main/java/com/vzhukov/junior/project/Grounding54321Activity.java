@@ -20,6 +20,7 @@ public class Grounding54321Activity extends AppCompatActivity {
 
     private View flashView;
     private Vibrator vibrator;
+    private long startTime;
 
     private int currentMainStep = 5;
     private int currentSubStep = 1;
@@ -38,6 +39,9 @@ public class Grounding54321Activity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grounding54321);
+
+        startTime = System.currentTimeMillis();
+        SessionManager.init(this);
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -120,5 +124,13 @@ public class Grounding54321Activity extends AppCompatActivity {
         if (isVibEnabled && vibrator != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        long duration = (System.currentTimeMillis() - startTime) / 1000;
+        boolean isSos = getIntent().getBooleanExtra("SOS_MODE", false);
+        SessionManager.addSession("Заземление 5-4-3-2-1", duration, isSos);
+        super.onDestroy();
     }
 }

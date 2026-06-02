@@ -28,7 +28,10 @@
         app:cardCornerRadius="4dp"
         app:cardElevation="8dp"
         app:strokeWidth="1.5dp"
-        app:strokeColor="?android:attr/textColorPrimary">
+        app:strokeColor="?android:attr/textColorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        android:stateListAnimator="@animator/card_press">
 
         <FrameLayout
             android:layout_width="match_parent"

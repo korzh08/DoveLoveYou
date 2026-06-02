@@ -56,6 +56,7 @@ public class EMDRStartActivity extends AppCompatActivity {
     private void startTraining(int speed) {
         Intent intent = new Intent(this, EMDRActivity.class);
         intent.putExtra("SPEED", speed);
+        intent.putExtra("SOS_MODE", getIntent().getBooleanExtra("SOS_MODE", false));
         startActivity(intent);
     }
 }

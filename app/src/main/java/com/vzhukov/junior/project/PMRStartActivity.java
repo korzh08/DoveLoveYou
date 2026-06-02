@@ -21,12 +21,14 @@ public class PMRStartActivity extends AppCompatActivity {
         btnExpress.setOnClickListener(v -> {
             Intent intent = new Intent(PMRStartActivity.this, PMRActivity.class);
             intent.putExtra("MODE", "EXPRESS");
+            intent.putExtra("SOS_MODE", getIntent().getBooleanExtra("SOS_MODE", false));
             startActivity(intent);
         });
 
         btnFull.setOnClickListener(v -> {
             Intent intent = new Intent(PMRStartActivity.this, PMRActivity.class);
             intent.putExtra("MODE", "FULL");
+            intent.putExtra("SOS_MODE", getIntent().getBooleanExtra("SOS_MODE", false));
             startActivity(intent);
         });
     }

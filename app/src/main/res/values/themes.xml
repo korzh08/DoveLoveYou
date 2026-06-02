@@ -3,6 +3,18 @@
     <style name="Base.Theme.JuniorProjectZhukovV" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowAnimationStyle">@style/CustomWindowAnimation</item>
+    </style>
+
+    <style name="CustomWindowAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_fade_out</item>
+        <item name="android:taskOpenEnterAnimation">@anim/activity_fade_in</item>
+        <item name="android:taskOpenExitAnimation">@anim/activity_fade_out</item>
+        <item name="android:taskCloseEnterAnimation">@anim/activity_fade_in</item>
+        <item name="android:taskCloseExitAnimation">@anim/activity_fade_out</item>
     </style>
 
     <style name="Theme.JuniorProjectZhukovV" parent="Base.Theme.JuniorProjectZhukovV" />

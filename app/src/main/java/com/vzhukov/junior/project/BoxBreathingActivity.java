@@ -25,6 +25,8 @@ public class BoxBreathingActivity extends AppCompatActivity {
     private View movDot, statRect, prepareLayout;
     private TextView phaseText, brtCounter;
     private Vibrator vibrator;
+    private long startTime;
+    private boolean isSosMode = false;
 
     private final String[] phases = {"ВДОХ", "ЗАДЕРЖКА", "ВЫДОХ", "ЗАДЕРЖКА"};
     private int currentPhaseIndex = 0;
@@ -37,6 +39,9 @@ public class BoxBreathingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_box_breathing);
+
+        startTime = System.currentTimeMillis();
+        SessionManager.init(this);
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -53,8 +58,8 @@ public class BoxBreathingActivity extends AppCompatActivity {
         phaseText = findViewById(R.id.phaseText);
         prepareLayout = findViewById(R.id.prepareLayout);
 
-        boolean isSos = getIntent().getBooleanExtra("SOS_MODE", false);
-        if (isSos) {
+        isSosMode = getIntent().getBooleanExtra("SOS_MODE", false);
+        if (isSosMode) {
             startBreathingImmediately();
         } else {
             startBut.setOnClickListener(v -> startBreathingImmediately());
@@ -67,22 +72,34 @@ public class BoxBreathingActivity extends AppCompatActivity {
         phaseText.setVisibility(View.VISIBLE);
         brtCounter.setVisibility(View.VISIBLE);
 
-        prepareLayout.animate().alpha(0f).setDuration(500).withEndAction(() -> {
-            prepareLayout.setVisibility(View.GONE);
-            startBreathingStep();
-        }).start();
+        prepareLayout.animate()
+                .alpha(0f)
+                .setDuration(800)
+                .setInterpolator(new android.view.animation.AccelerateDecelerateInterpolator())
+                .withEndAction(() -> {
+                    prepareLayout.setVisibility(View.GONE);
+                    startBreathingStep();
+                }).start();
     }
 
     private void startBreathingStep() {
         if (isDestroyed || isFinishing()) return;
         triggerCornerVibration();
 
-        phaseText.animate().alpha(0f).setDuration(300).withEndAction(() -> {
-            if (!isDestroyed) {
-                phaseText.setText(phases[currentPhaseIndex]);
-                phaseText.animate().alpha(1f).setDuration(300).start();
-            }
-        }).start();
+        phaseText.animate()
+                .alpha(0f)
+                .setDuration(500)
+                .setInterpolator(new android.view.animation.AccelerateDecelerateInterpolator())
+                .withEndAction(() -> {
+                    if (!isDestroyed) {
+                        phaseText.setText(phases[currentPhaseIndex]);
+                        phaseText.animate()
+                                .alpha(1f)
+                                .setDuration(500)
+                                .setInterpolator(new android.view.animation.AccelerateDecelerateInterpolator())
+                                .start();
+                    }
+                }).start();
 
         float side = statRect.getWidth();
         float offset = 12 * getResources().getDisplayMetrics().density;
@@ -152,6 +169,9 @@ public class BoxBreathingActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         isDestroyed = true;
+        long duration = (System.currentTimeMillis() - startTime) / 1000;
+        SessionManager.addSession("Квадратное дыхание", duration, isSosMode);
+
         breathingHandler.removeCallbacksAndMessages(null);
         if (vibrator != null) {
             vibrator.cancel();

@@ -26,19 +26,28 @@ public class WelcomeActivity extends AppCompatActivity {
 
             String methodToSave = "breathe";
 
-            if (selectedId == R.id.rbPmr) {
-                methodToSave = "pmr";
+            if (selectedId == R.id.rbPmrFull) {
+                methodToSave = "pmr_full";
+            } else if (selectedId == R.id.rbPmrExpress) {
+                methodToSave = "pmr_express";
             } else if (selectedId == R.id.rbGrounding) {
                 methodToSave = "grounding";
+            } else if (selectedId == R.id.rbDescribe) {
+                methodToSave = "describe";
             } else if (selectedId == R.id.rbBreathe) {
                 methodToSave = "breathe";
             }
 
-            SettingsManager.setString("fav_method_string", methodToSave);
+            SettingsManager.setString(SettingsManager.KEY_FAVORITE_METHOD_STR, methodToSave);
 
             SettingsManager.setBoolean(SettingsManager.KEY_FIRST_LAUNCH, false);
 
             startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+            if (android.os.Build.VERSION.SDK_INT >= 34) {
+                overrideActivityTransition(OVERRIDE_TRANSITION_OPEN, R.anim.activity_fade_in, R.anim.activity_fade_out);
+            } else {
+                overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
+            }
             finish();
         });
     }

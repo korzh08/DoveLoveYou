@@ -27,11 +27,17 @@ public class SettingsActivity extends AppCompatActivity {
 
         int idToSelect;
         switch (savedMethod) {
-            case "pmr":
-                idToSelect = R.id.rbPMR;
+            case "pmr_full":
+                idToSelect = R.id.rbPMRFull;
+                break;
+            case "pmr_express":
+                idToSelect = R.id.rbPMRExpress;
                 break;
             case "grounding":
                 idToSelect = R.id.rb54321;
+                break;
+            case "describe":
+                idToSelect = R.id.rbDescribe;
                 break;
             default:
                 idToSelect = R.id.rbBreathe;
@@ -49,10 +55,14 @@ public class SettingsActivity extends AppCompatActivity {
             String methodToSave;
 
             
-            if (checkedId == R.id.rbPMR) {
-                methodToSave = "pmr";
+            if (checkedId == R.id.rbPMRFull) {
+                methodToSave = "pmr_full";
+            } else if (checkedId == R.id.rbPMRExpress) {
+                methodToSave = "pmr_express";
             } else if (checkedId == R.id.rb54321) {
                 methodToSave = "grounding";
+            } else if (checkedId == R.id.rbDescribe) {
+                methodToSave = "describe";
             } else {
                 methodToSave = "breathe";
             }

@@ -26,6 +26,7 @@ public class PMRActivity extends AppCompatActivity {
     private CountDownTimer currentTimer;
     private CountDownTimer preparationTimer;
     private Vibrator vibrator;
+    private long startTime;
 
 
     private int materialAccentColor;
@@ -59,6 +60,8 @@ public class PMRActivity extends AppCompatActivity {
                 android.graphics.Color.BLUE
         );
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        startTime = System.currentTimeMillis();
+        SessionManager.init(this);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -234,6 +237,11 @@ public class PMRActivity extends AppCompatActivity {
         if (currentTimer != null) currentTimer.cancel();
         if (preparationTimer != null) preparationTimer.cancel();
         if (vibrator != null) vibrator.cancel();
+        
+        long duration = (System.currentTimeMillis() - startTime) / 1000;
+        boolean isSos = getIntent().getBooleanExtra("SOS_MODE", false);
+        SessionManager.addSession("Релаксация ПМР", duration, isSos);
+
         super.onDestroy();
     }
 }

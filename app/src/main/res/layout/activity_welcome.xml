@@ -54,11 +54,19 @@
             android:checked="true"/>
 
         <RadioButton
-            android:id="@+id/rbPmr"
+            android:id="@+id/rbPmrFull"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:fontFamily="@font/comfortaa_bold"
-            android:text="Релаксация (ПМР)"
+            android:text="@string/pmr_full"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/rbPmrExpress"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="@string/pmr_express"
             android:textSize="16sp" />
 
         <RadioButton
@@ -67,6 +75,14 @@
             android:layout_height="56dp"
             android:fontFamily="@font/comfortaa_bold"
             android:text="Заземление 5-4-3-2-1"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/rbDescribe"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="@string/describe_object_radio"
             android:textSize="16sp" />
     </RadioGroup>
 

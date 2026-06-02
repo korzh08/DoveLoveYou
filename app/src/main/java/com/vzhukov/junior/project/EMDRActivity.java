@@ -2,7 +2,7 @@ package com.vzhukov.junior.project;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +14,16 @@ public class EMDRActivity extends AppCompatActivity {
 
     private View emdrDot;
     private int speed;
+    private long startTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_emdractivity);
+
+        startTime = System.currentTimeMillis();
+        SessionManager.init(this);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -28,6 +32,7 @@ public class EMDRActivity extends AppCompatActivity {
         });
 
         emdrDot = findViewById(R.id.emdrDot);
+        findViewById(R.id.btnClose).setOnClickListener(v -> finish());
 
 
         speed = getIntent().getIntExtra("SPEED", 1000);
@@ -43,12 +48,12 @@ public class EMDRActivity extends AppCompatActivity {
         emdrDot.animate()
                 .translationX(moveDistance)
                 .setDuration(speed)
-                .setInterpolator(new LinearInterpolator())
+                .setInterpolator(new AccelerateDecelerateInterpolator())
                 .withEndAction(() -> {
                     emdrDot.animate()
                             .translationX(0)
                             .setDuration(speed)
-                            .setInterpolator(new LinearInterpolator())
+                            .setInterpolator(new AccelerateDecelerateInterpolator())
                             .withEndAction(this::startEmdrAnimation)
                             .start();
                 })
@@ -57,9 +62,13 @@ public class EMDRActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        long duration = (System.currentTimeMillis() - startTime) / 1000;
+        boolean isSos = getIntent().getBooleanExtra("SOS_MODE", false);
+        SessionManager.addSession("ДПДГ (EMDR)", duration, isSos);
+
         if (emdrDot != null) {
             emdrDot.animate().cancel();
         }
+        super.onDestroy();
     }
 }
